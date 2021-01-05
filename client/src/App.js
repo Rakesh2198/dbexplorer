@@ -9,6 +9,7 @@ function App() {
   const [displayComments, setDisplayComments] = useState([])
 
   const [columns , setColumns] = useState([])
+  const [bgColor,setBgColor]= useState("none");
  
   const Display = () => { 
     Axios.get('http://localhost:3001/api/get').then((response => {
@@ -19,7 +20,8 @@ function App() {
   const Show = (TableName) => {
    
     Axios.get('http://localhost:3001/api/get/'+ TableName).then((response => {
-      const {tableData,comments} = response.data; 
+      const {tableData,comments} = response.data
+      setBgColor(tableData.length>0?'lightgrey':'white')
       setDisplayTable(tableData)
       let keys = Object.keys(tableData[0])
       setColumns(keys)
@@ -52,7 +54,7 @@ function App() {
 
   return (
     <div className="App">
-   <div className="head"> {displayComments.map(item => <p> {item["substring_index(table_comment,';',1)"]}</p> 
+   <div className="head" style={{backgroundColor:bgColor}}> {displayComments.map(item => <p> {item["substring_index(table_comment,';',1)"]}</p> 
 
     )}</div>
       <div className="disL">
@@ -66,7 +68,7 @@ function App() {
         <button onClick={() => Show(data.Tables_in_demo1) }> {data.Tables_in_demo1} </button>)}
         </div>
         <div className="vl"></div>
-        <div className="Scroll">
+        <div className="Scroll" style={{backgroundColor:bgColor}}>
         <Table/>
         
         </div>

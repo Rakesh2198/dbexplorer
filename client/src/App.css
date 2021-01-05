@@ -1,6 +1,6 @@
 .App {
   text-align: center;
- 
+  
 }
 
 .disL {
@@ -42,9 +42,13 @@
   padding-right: 30px;
   overflow: scroll;
   margin-left: 60px;
-  background: whitesmoke;
+  /*background: whitesmoke;*/
   margin-top: -120px;
   height: 240px;
+}
+
+.Scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .Scroll p {
@@ -70,7 +74,8 @@
 }
 body 
 {
-  background-color: cornflowerblue;
+    /* background-color: #b3f1ff; */
+     background-image: url("../src/2.jpg"); 
 }
 .just {
   margin-top: -126px;
@@ -78,17 +83,26 @@ body
   width: 100px;
   height: 250px;
 }
+
+.just::-webkit-scrollbar {
+  display: none;
+}
+
+.just::button:hover {
+  color: deepskyblue;
+}
+
 .col1 {
   border: 1px dotted black;
   padding: 10px;
 
 }
 .head {
-    margin: 0px 215px 35px 271px;
-    color: darkgreen;
+    margin: 0px 216px 35px 271px;
+    color: black;
     height: 67px;
-    font-family: cursive;
-    background-color: floralwhite;
+    text-transform: capitalize;;
+    border-radius: 50px;
     text-align: center;
     justify-content: center;
 }
